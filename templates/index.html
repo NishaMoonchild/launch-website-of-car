@@ -1,0 +1,114 @@
+<html >
+<body >
+
+<!-- CSS -->	
+<!-- Background image -->	
+<style type="text/css">
+  html, 
+  body {
+  height: 100%;
+  }
+  body {
+  background-image: url(../static/car50.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  }
+</style>
+
+<!-- Web Page -->	
+
+<div class="login"><br>
+  <h1 select style="margin-left:70px;">Predict used car price</h1></select><br>
+	
+  <!-- Main Query For Receiving input to our ML model-->
+    
+  <form action="{{ url_for('predict')}}"method="post">
+    <!-- Brand of car-->	  
+    <type style="margin-left:52px;"> Brand of car:<select style="margin-left:64px;width:170px;"name="Brand_Name">
+      <option value="17">Maruti</option> 
+      <option value="10">Hyundai</option> 
+      <option value="9"> Honda</option> 
+      <option value="1"> Audi</option>
+      <option value="21">Nissan</option> 
+      <option value="27">Toyota</option>
+      <option value="28">Volkswagen</option> 
+      <option value="26">Tata</option> 
+      <option value="15">Land</option> 
+      <option value="20">Mitsubishi</option> 
+      <option value="23">Renault</option> 
+      <option value="18">Mercedes-Benz</option>
+      <option value="2"> BMW</option> 
+      <option value="16">Mahindra</option>
+      <option value="8"> Ford</option> 
+      <option value="22">Porsche</option> 
+      <option value="5"> Datsun</option> 
+      <option value="12">Jaguar</option> 
+      <option value="29">Volvo</option>
+      <option value="4"> Chevrolet</option> 
+      <option value="24">Skoda</option>
+      <option value="19">Mini</option> 
+      <option value="6"> Fiat</option> 
+      <option value="13">Jeep</option> 
+      <option value="25">Smart</option> 
+      <option value="0"> Ambassador</option> 
+      <option value="11">ISUZU</option>
+      <option value="7"> Force</option> 
+      <option value="3"> Bently</option>
+      <option value="14">Lambhorghini</option> 
+    </select> <br><br>
+    <!-- Year,km,mileage,cc,bhp -->	
+    <type style="margin-left:52px;"> Year              : <input style="margin-left: 107px;" type="text" name="Year" placeholder="year" title = "Not a valid year"required pattern="[(1990-2018)(2013)(2014)(2015)(2016)(2017)]{4}" /><br><br>
+    <type style="margin-left:52px;"> Kilometers driven : <input style="margin-left: 20px;" type="text" name="Kilometers_Driven" placeholder="km" title = "Not a valid KM"required  pattern="[0-9]{3,}"/><br><br>
+    <type style="margin-left:52px;"> Mileage           : <input style="margin-left: 84px;"type="text" name="Mileage" placeholder="km/l" title = "Not a valid mileage"required  pattern="[10-70]{2}"/><br><br>
+    <type style="margin-left:52px;"> Engine            : <input style="margin-left: 91px;"type="text" name="Engine" placeholder="CC" title = "Not a valid CC"required  pattern="[800-4000]{3,4}" /><br><br>
+    <type style="margin-left:52px;"> Power             : <input style="margin-left: 95px;"type="text" name="Power" placeholder="bhp" title = "Not a valid power"required  pattern="[10-500]{2,3}" /><br><br>
+        
+    <!-- no of seats-->	     
+    <type style="margin-left:52px;"> No of seats:<select style="margin-left: 72px;width:170px;"name="Seats"> 
+      <option value="2"> 2</option> 
+      <option value="4"> 4</option> 
+      <option value="5"> 5</option> 
+      <option value="6"> 6</option>
+      <option value="7"> 7</option> 
+      <option value="8"> 8</option>
+      <option value="9"> 9</option> 
+      <option value="10">10</option> 
+    </select> <br><br>
+    <!-- Fuel type -->	    
+    <type style="margin-left:52px;"> Fuel type: <select style="margin-left: 80px;width:170px;"name="Fuel_Type_n"> 
+      <option value="0">CNG</option> 
+      <option value="1">Dieseal</option> 
+      <option value="3">LPG</option> 
+      <option value="4">Petrol</option> 
+      <option value="2">Electric</option>
+    </select> <br><br>
+    <!-- Transmission -->	    
+    <type style="margin-left:52px;"> Transmission: <select style="margin-left: 55px;width:170px;"name="Transmission_n"> 
+      <option value="0">Automatic</option> 
+      <option value="1">Manual</option> 
+    </select> <br><br>
+    <!-- Owner type -->	
+    <type style="margin-left:52px;"> Owner Type: <select style="margin-left: 61px;width:170px;"name="Owner_Type_n"> 
+      <option value="0">First</option> 
+      <option value="2">Second</option> 
+      <option value="3">Third</option> 
+      <option value="1">Fourth and above</option> 
+    </select> <br><br><br>
+
+    <!-- Submit button -->	   
+    <button select style="margin-left: 160px;"type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    
+  </form>   
+   <!-- Result-->	
+  <h3><type style="margin-left:110px;"></type>{{prediction_text }}</h3>
+</div>
+
+
+
+
+<script async type="text/javascript" src="https://userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/
+4172269a79e44962a52fa955ab893dfdc9f24276e435442097935b929240988f.js"></script>
+
+
+</body>
+</html>
